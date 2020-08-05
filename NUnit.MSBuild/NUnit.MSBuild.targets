@@ -1,0 +1,42 @@
+﻿<!--
+<copyright file="NUnit.MSBuild.targets" company="Ace Olszowka">
+Copyright (c) Ace Olszowka 2020. All rights reserved.
+</copyright>
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Try to provide sane defaults; but allow them to be overridden-->
+  <PropertyGroup>
+    <NUnitUsex86Runner Condition="$(PlatformTarget) == 'x86' AND $(NUnitUsex86Runner) == ''">True</NUnitUsex86Runner>
+    <NUnitConsoleToolPath Condition="$(NUnitConsoleToolPath) == ''">C:\Program Files (x86)\NUnit.org\nunit-console\</NUnitConsoleToolPath>
+    <NUnitResultFileName Condition="$(NUnitResultFileName) == ''">$([System.IO.Path]::Combine("$(OutputPath)","$(TargetName).TestResults.xml"))</NUnitResultFileName>
+    <NUnitContinueOnFailure Condition="$(NUnitContinueOnFailure) == ''">true</NUnitContinueOnFailure>
+  </PropertyGroup>
+
+  <!--This location should exist because of how it is packed in the .nuspec-->
+  <UsingTask AssemblyFile="$(MSBuildThisFileDirectory)..\tools\NUnit.MSBuild.dll" TaskName="NUnit3"/>
+
+  <!--Execute the tests ONLY if the NUnitResultFileName is older than the Assembly-->
+  <Target
+    Name="NUnitExecuteTests"
+    AfterTargets="Build"
+    Condition="$(RunTests) != ''"
+    Inputs="$(TargetPath)"
+    Outputs="$(NUnitResultFileName)">
+
+    <NUnit3
+      Assemblies="$(TargetPath)"
+      Forcex86="$(NUnitUsex86Runner)"
+      ToolPath="$(NUnitConsoleToolPath)"
+      Result="$(NUnitResultFileName)"
+      ContinueOnError="$(NUnitContinueOnFailure)" />
+  </Target>
+
+  <!--When a Clean is performed we want to delete any Result File to force NUnit to execute again-->
+  <Target
+    Name="NUnitClean"
+    AfterTargets="Clean"
+    Condition="Exists('$(NUnitResultFileName)')">
+          <Delete
+            Files="$(NUnitResultFileName)"/>
+  </Target>
+</Project>

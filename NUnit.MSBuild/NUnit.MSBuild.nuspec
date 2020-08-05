@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+<copyright file="NUnit.MSBuild.nuspec" company="Ace Olszowka">
+Copyright (c) Ace Olszowka 2020. All rights reserved.
+</copyright>
+-->
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/aolszowka/NUnit.MSBuild</projectUrl>
+    <description>$description$</description>
+    <copyright>$copyright$</copyright>
+    <tags>MSBuild NUnit3 Unit Tests</tags>
+    <developmentDependency>true</developmentDependency>
+  </metadata>
+  <files>
+    <file src="bin\$configuration$\NUnit.MSBuild.targets" target="build" />
+    <file src="bin\$configuration$\NUnit.MSBuild.pdb" target="tools" />
+  </files>
+</package>

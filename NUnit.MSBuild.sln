@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.MSBuild", "NUnit.MSBuild\NUnit.MSBuild.csproj", "{7578E862-11CB-4470-B1D4-B0B733C64367}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C54BAD46-B53A-4DBD-A8CB-EEA8100CB625}"
+	ProjectSection(SolutionItems) = preProject
+		Build\PackNuGetPackage.bat = Build\PackNuGetPackage.bat
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnit.MSBuild.Example", "NUnit.MSBuild.Example\NUnit.MSBuild.Example.csproj", "{B3686F88-964E-4C41-BD4A-AB65BF58E674}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7578E862-11CB-4470-B1D4-B0B733C64367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7578E862-11CB-4470-B1D4-B0B733C64367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7578E862-11CB-4470-B1D4-B0B733C64367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7578E862-11CB-4470-B1D4-B0B733C64367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3686F88-964E-4C41-BD4A-AB65BF58E674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3686F88-964E-4C41-BD4A-AB65BF58E674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3686F88-964E-4C41-BD4A-AB65BF58E674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3686F88-964E-4C41-BD4A-AB65BF58E674}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13B02DD7-5AF7-4CD6-8C9B-4B8FEFB2DAA3}
+	EndGlobalSection
+EndGlobal
