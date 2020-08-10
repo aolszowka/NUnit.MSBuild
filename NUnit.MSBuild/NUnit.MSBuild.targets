@@ -19,7 +19,7 @@ Copyright (c) Ace Olszowka 2020. All rights reserved.
   <Target
     Name="NUnitExecuteTests"
     AfterTargets="Build"
-    Condition="$(RunTests) != ''"
+    Condition="$(RunTests) != '' And $(RunTests)"
     Inputs="$(TargetPath)"
     Outputs="$(NUnitResultFileName)">
 
