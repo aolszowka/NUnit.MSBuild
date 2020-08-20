@@ -10,6 +10,8 @@ Copyright (c) Ace Olszowka 2020. All rights reserved.
     <NUnitConsoleToolPath Condition="$(NUnitConsoleToolPath) == ''">C:\Program Files (x86)\NUnit.org\nunit-console\</NUnitConsoleToolPath>
     <NUnitResultFileName Condition="$(NUnitResultFileName) == ''">$([System.IO.Path]::Combine("$(OutputPath)","$(TargetName).TestResults.xml"))</NUnitResultFileName>
     <NUnitContinueOnFailure Condition="$(NUnitContinueOnFailure) == ''">true</NUnitContinueOnFailure>
+
+    <NUnitOutputFormat Condition="$(NUnitOutputFormat) == ''">nunit3</NUnitOutputFormat>
   </PropertyGroup>
 
   <!--This location should exist because of how it is packed in the .nuspec-->
@@ -27,7 +29,7 @@ Copyright (c) Ace Olszowka 2020. All rights reserved.
       Assemblies="$(TargetPath)"
       Forcex86="$(NUnitUsex86Runner)"
       ToolPath="$(NUnitConsoleToolPath)"
-      Result="$(NUnitResultFileName)"
+      Result="$(NUnitResultFileName);format=$(NUnitOutputFormat)"
       ContinueOnError="$(NUnitContinueOnFailure)" />
   </Target>
 
